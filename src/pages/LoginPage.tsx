@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { usuarioFake } from "../services/backEndFake/usuario";
 import { useAuth } from '../context/authContext';
 import { MdArrowLeft } from 'react-icons/md';
+import '../styles/pages.css';
 
 const LoginPage: React.FC = () => {
     const [ email, setEmail] = useState("");
@@ -27,7 +28,7 @@ const LoginPage: React.FC = () => {
     };
 
     return(
-        <div className="container" style={{ justifyItems: "center", marginTop:"100px"}}>
+        <div className="container login">
             <div className="card col-md-9 col-xs-12 col-lg-4">
                 <h2 className="mb-4">Login do Professor</h2>
                 <form onSubmit={(e) =>{

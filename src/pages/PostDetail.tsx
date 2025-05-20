@@ -5,6 +5,8 @@ import type { IPost } from "../interface";
 import { dataPostsFake } from "../services/backEndFake/posts";
 import { Card, Col, Row } from "react-bootstrap";
 import { MdArrowLeft } from 'react-icons/md';
+import '../styles/pages.css';
+
 // import { getPostId } from "../services/modules/posts";
 
 const PostDetail: React.FC = () => {
@@ -23,9 +25,9 @@ const PostDetail: React.FC = () => {
 
     return(
         <div className="m-0 p-0">
-            <Row className="my-4" style={{backgroundColor: "#fff", alignItems:"center"}}>
+            <Row className="my-4">
                 <Col md={10} style={{textAlign:"left"}}>
-                    <h1 style={{boxShadow:"initial"}}>Detalhe do Post - {postId?.id}</h1>
+                    <h3 style={{boxShadow:"initial"}}>Detalhe do Post - {postId?.id}</h3>
                 </Col>
                 <Col>
                     <Link to={"/"} className="mt-3"><MdArrowLeft /> Voltar </Link>
@@ -34,7 +36,7 @@ const PostDetail: React.FC = () => {
             <Card>               
                 <h4><strong>Título:</strong> {postId?.titulo}</h4>
                 <h5>Autor: {postId?.autor}</h5>
-                <Card style={{backgroundColor: "#ccc"}}>
+                <Card className="contentPost">
                     <p>{postId?.conteudo}</p>
                 </Card>
             </Card>

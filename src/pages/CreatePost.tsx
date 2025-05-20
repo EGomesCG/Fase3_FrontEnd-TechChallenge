@@ -2,26 +2,53 @@ import { useEffect, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { MdArrowLeft } from 'react-icons/md';
-import { dataPostsFake } from "../services/backEndFake/posts";
+import { dataPostsFake as initialDataPostsFake  } from "../services/backEndFake/posts";
 import type { IPost } from "../interface";
 
 const CreatePost = () => {
     const [titulo, setTitulo] = useState('');
     const [autor, setAutor] = useState('');
     const [conteudo, setConteudo] = useState('');
+    const [ posts, setPosts ] = useState<IPost[]>(initialDataPostsFake);
     const navigate = useNavigate();
     const { id } = useParams();
+
+    console.log("posts:", posts);
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if(id){
-            const indexParaEditar = dataPostsFake.findIndex((post) => post.id === Number(id));
-            if(indexParaEditar){
-                dataPostsFake[indexParaEditar] = { id: Number(id), titulo, autor, conteudo, AtualizacaoDate: new Date()};
+            const indexParaEditar = initialDataPostsFake.findIndex((post) => post.id === Number(id));
+            if(indexParaEditar >= 0){
+                initialDataPostsFake[indexParaEditar] = { id: Number(id), titulo, autor, conteudo, AtualizacaoDate: new Date()};
                 navigate(`/post/${id}`);
             }
+            // const updatePost:IPost = {
+            //     autor: autor,
+            //     conteudo: conteudo,
+            //     titulo: titulo,
+            //     AtualizacaoDate: new Date(),
+            //     id: Number(id)
+            // };
+
+            // setPosts(prevPosts => {
+            //     const updateList = prevPosts.map(post => 
+            //         post.id === Number(id) ? { ...posts, ...updatePost } : post
+            //     );
+
+            //     return updateList.sort((a, b) => {
+            //         const dateA = a.CreateDate?.getTime() || 0;
+            //         const dateB = b.CreateDate?.getTime() || 0;
+            //         return dateB - dateA;
+            //     });
+            // });
+            
+            // initialDataPostsFake.push(updatePost);
+
+            //navigate(`/post/${id}`);
+            
         } else{
-            const newId = dataPostsFake.length;    
+            const newId = initialDataPostsFake.length;    
             const novoPost:IPost = {
                 id: newId + 1,
                 autor: autor,
@@ -31,15 +58,24 @@ const CreatePost = () => {
                 AtualizacaoDate: new Date(),
             };
             
-            dataPostsFake.push(novoPost);
-            console.log("novoPost", novoPost);
+            //dataPostsFake.push(novoPost);
+            setPosts(prevPosts => {
+                const updatePosts = [ ...prevPosts, novoPost ];
+                return updatePosts.sort((a, b) => {
+                    const dateA = a.CreateDate?.getTime() || 0; 
+                    const dateB = b.CreateDate?.getTime() || 0; 
+                    return dateB - dateA; 
+                });
+            });
+
+            initialDataPostsFake.push(novoPost);
             navigate("/")
         }
     };
 
     useEffect(() => {
         if(id){
-            const postEdicao = dataPostsFake.find((post) => post.id === Number(id));
+            const postEdicao = initialDataPostsFake.find((post) => post.id === Number(id));
             if(postEdicao){
                 setTitulo(postEdicao.titulo);
                 setAutor(postEdicao.autor);
@@ -58,7 +94,7 @@ const CreatePost = () => {
                     <Form.Label>Título</Form.Label>
                     <Form.Control
                         type="text"
-                        placeholder="Digite o título dopost"
+                        placeholder="Digite o título do post"
                         value={titulo}
                         onChange={(e) => setTitulo(e.target.value)}
                         required
