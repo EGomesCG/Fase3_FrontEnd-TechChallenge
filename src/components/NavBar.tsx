@@ -18,7 +18,7 @@ const Navbar: React.FC<INavbarProps> = ({ isAuthenticated, handleLogout, navigat
       <Row style={{justifyContent: "space-between", width: "100%"}} className='mx-2'>
           <Col md={9}
            style={{textAlign:"left"}}>
-            <h2 className="navbar-brand"><img src={icone} style={{width:"35px", height:"35p",marginRight: "5px"}}/>Blog Educacional</h2>
+            <h2 className="navbar-brand"><img src={icone} alt={"Imagem da coruja"} style={{width:"35px", height:"35px",marginRight: "5px"}}/>Blog Educacional</h2>
           </Col>
           <Col md={3}>
             <button
