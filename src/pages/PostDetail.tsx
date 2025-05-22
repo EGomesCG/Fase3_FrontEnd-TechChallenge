@@ -36,7 +36,7 @@ const PostDetail: React.FC = () => {
             <Card>               
                 <h4><strong>Título:</strong> {postId?.titulo}</h4>
                 <h5>Autor: {postId?.autor}</h5>
-                <Card className="contentPost">
+                <Card  style={{ backgroundColor: '#c8e2ea'}}>
                     <p>{postId?.conteudo}</p>
                 </Card>
             </Card>

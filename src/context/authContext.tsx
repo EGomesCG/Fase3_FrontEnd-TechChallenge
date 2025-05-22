@@ -5,7 +5,7 @@ interface AuthContextType {
     setIsAuth: (isAuth: boolean) => void;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 interface AuthProviderPros {
     children: React.ReactNode;
