@@ -28,13 +28,12 @@ const HomePage:React.FC = () => {
     };
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) =>{
-        console.log("pESQUIASar", event.target.value);
         setSearchTerm(event.target.value);
     };
 
     const filteredPosts = useMemo(() => {
         if (!searchTerm) {
-            return posts; // Se o termo de busca estiver vazio, retorna todos os posts
+            return posts; 
         }
 
         const lowercasedSearchTerm = searchTerm.toLowerCase();
@@ -94,18 +93,18 @@ const HomePage:React.FC = () => {
             filteredPosts.map(post => (
                 <div className="my-3" key={post.id}>
                     <Card  className="shadow w-100 bg-body-secondary">
-                        <Row className="rowCard">
-                            <Col md={isAuth ? 3 : 4}>
+                        <Row className="rowCard g-0 align-items-center p-2">
+                            <Col xs={12} sm={6} md={isAuth ? 3 : 4} className="mb-2 mb-sm-0">
                                 <Link to={`/post/${post.id}`}><h6 className="m-0"><strong>{post.titulo}</strong></h6></Link>
                             </Col>
-                            <Col md={isAuth ? 3 : 4} >
+                            <Col xs={12} sm={6} md={isAuth ? 3 : 4} className="mb-2 mb-sm-0">
                                 <Link to={`/post/${post.id}`}><p className="m-0">Autor: {post.autor}</p></Link>
                             </Col>
-                            <Col md={isAuth ? 3 : 4} >
+                            <Col xs={12} sm={12}  md={isAuth ? 3 : 4} className="mb-2 mb-sm-0">
                                 <Link to={`/post/${post.id}`}><p className="m-0"><span className="truncate-single-line">Descrição: {post.conteudo}</span></p></Link>
                             </Col>
                             {isAuth && (
-                                <Col md={2}>
+                                <Col xs={12} md={2} className="d-flex justify-content-end align-items-center mt-2 mt-md-0">
                                     <div className="btnCard gap-2">                                    
                                         <Button onClick={() => navigate(`/edit/${post.id}`)} size="sm" variant="outline-primary"><MdEdit /></Button> 
                                         <Button onClick={() => handleExcluir(post.id)} size="sm" variant="outline-danger"><MdDelete /></Button>                    
