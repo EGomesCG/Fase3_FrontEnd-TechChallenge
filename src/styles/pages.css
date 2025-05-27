@@ -14,3 +14,11 @@
      justify-items: center;
      margin-top: 100px;
 }
+
+.truncate-single-line {
+  white-space: nowrap; 
+  overflow: hidden;    
+  text-overflow: ellipsis;
+  max-width: 300px; 
+  display: block; 
+}
