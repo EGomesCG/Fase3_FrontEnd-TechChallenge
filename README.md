@@ -1,10 +1,10 @@
-#Fase3 - FrontEnd - TechChallenge
+# Fase3 - FrontEnd - TechChallenge
 Desenvolver uma interface gráfica para a aplicação de blogging utilizando React. A aplicação deve ser responsiva, acessível e fácil de usar, permitindo aos docentes e alunos(as) interagir com os diversos endpoints REST já implementados no back-end.
 
-#🚀 Visão Geral
+# 🚀 Visão Geral
 Este é o repositório do front-end da aplicação Fase3_FrontEnd-TechChallenge, desenvolvida em React com TypeScript. Ele oferece uma interface de usuário intuitiva para exibir os posts dos professores da rede pública, visando unir tecnologia e dinâmica na educação. É possível para os professores criar, editar e excluir os posts, e os alunos podem visualizá-los.
 
-#✨ Features Principais
+# ✨ Features Principais
 Listagem e Detalhes de Posts: Exibe posts recentes com a opção de ver detalhes completos.
 Busca de Posts: Permite pesquisar posts por título, autor e conteúdo.
 Comentários: Usuários podem visualizar e adicionar comentários aos posts.
@@ -12,12 +12,12 @@ Autenticação (Admin): Funcionalidade de login/logout para administradores.
 Gerenciamento de Posts (Admin): Criação, edição e exclusão de posts para usuários autenticados.
 Design Responsivo: Adaptado para diferentes tamanhos de tela.
 
-#💻 Setup Inicial
+# 💻 Setup Inicial
 Pré-requisitos
 Node.js (versão recomendada: v18.x ou superior)
 npm ou Yarn (gerenciador de pacotes, npm geralmente vem com Node.js)
 
-#Instalação
+# Instalação
 Clone o repositório:
 Bash
 
@@ -29,7 +29,7 @@ Bash
 
 npm install
 
-#Variáveis de Ambiente
+# Variáveis de Ambiente
 Crie um arquivo .env na raiz do projeto (se ainda não existir).
 Adicione a seguinte variável (substitua o valor pelo seu):
 Snippet de código
@@ -37,7 +37,7 @@ Snippet de código
 REACT_APP_API_BASE_URL=http://localhost:3001/api
 Observação: Nunca publique seu arquivo .env em repositórios públicos. Ele já deve estar no .gitignore.
 
-#Rodando o Projeto
+# Rodando o Projeto
 Para iniciar o servidor de desenvolvimento:
 
 Bash
@@ -45,7 +45,7 @@ Bash
 npm run dev
 Isso geralmente abrirá o aplicativo em seu navegador padrão em http://localhost:5174/.
 
-#⚙️ Arquitetura da Aplicação
+# ⚙️ Arquitetura da Aplicação
 Estrutura de Pastas
 A organização do projeto segue uma estrutura modular e clara para facilitar a navegação e a manutenção do código.
 
@@ -83,7 +83,7 @@ tsconfig.json        # Configuração TypeScript geral.
 tsconfig.node.json   # Configuração TypeScript para arquivos Node.js.
 vite.config.ts       # Configuração do bundler Vite.
 
-#Tecnologias Utilizadas
+# Tecnologias Utilizadas
 Este projeto front-end foi desenvolvido utilizando as seguintes tecnologias e bibliotecas:
 
 Linguagens e Frameworks
@@ -108,7 +108,7 @@ Gerenciamento de Estado
 Estado Local (useState): Utilizado para o estado de componentes específicos (ex: searchTerm na página inicial).
 Context API (useContext): Usado para estado global e acessível em múltiplos componentes (ex: AuthContext para dados de autenticação do usuário).
 
-#Comunicação com o Backend
+# Comunicação com o Backend
 A comunicação com a camada de backend é gerenciada de forma centralizada e modular, utilizando a biblioteca axios para as requisições HTTP.
 
 Configuração da API (src/services/api.ts):
@@ -183,14 +183,14 @@ export const getPostId = async (id: number) => {
 
 // ... e assim por diante para createPost, updatePost, deletePost
 
-#📚 Guia de Uso
+# 📚 Guia de Uso
 #Para Usuários
 Navegação: Use a barra de navegação superior (se houver) ou os links nas listagens para explorar os posts.
 Busca: Utilize o campo de busca na página inicial para filtrar posts por título, autor ou conteúdo.
 Comentários: Na página de detalhes de um post, você pode visualizar os comentários existentes e adicionar o seu próprio.
 Autenticação (Admin): Na barra de navegação é possível realizar o login e o logout do usuário.
 
-#Para Desenvolvedores
+# Para Desenvolvedores
 Adicionando Novas Rotas/Páginas:
 
 Crie um novo arquivo .tsx em src/pages/.
@@ -206,7 +206,7 @@ Integração com API:
 Descomente e configure as chamadas de API em src/services/modules/ quando o backend estiver pronto.
 Ajuste o .env com a REACT_APP_API_BASE_URL correta.
 
-#Rodando os Testes:
+# Rodando os Testes:
 
 O projeto inclui testes unitários desenvolvidos com Vitest e Testing Library. Você pode executá-los utilizando os seguintes comandos:
 
@@ -230,7 +230,7 @@ Testes Unitários
 O projeto utiliza Vitest como framework de testes e Testing Library para escrever testes que focam no comportamento do usuário, garantindo a funcionalidade e a robustez dos componentes.
 
 Configuração: Os arquivos de configuração de teste (vitest.config.ts, setupTests.ts) e o setup de ambiente de teste com jsdom (para simular o DOM no ambiente Node.js) estão definidos para um desenvolvimento eficiente e rápido.
-Localização dos Testes: Os testes unitários estão localizados na pasta src/tests/, seguindo a convenção de nomear os arquivos de teste como [NomeDoComponente].test.tsx (ex: NavBar.test.tsx).
+Localização dos Testes: Os testes unitários estão localizados na pasta src/tests/, seguindo a convenção de nomear os arquivos de teste como NavBar.test.tsx.
 Foco no Comportamento do Usuário: A Testing Library encoraja testes que interagem com o componente da mesma forma que um usuário faria, buscando elementos pelo texto visível, rótulos de acessibilidade, etc., o que resulta em testes mais resilientes a mudanças internas da implementação.
 Mocks de Contexto e Navegação: Para testar componentes que dependem de Contextos (como AuthContext) ou de hooks de navegação (useNavigate do React Router DOM), são utilizados mocks (com vi.fn() do Vitest) para simular o comportamento desses dependências, isolando o componente a ser testado.
 Exemplo de Teste (src/tests/NavBar.test.tsx):
@@ -282,12 +282,12 @@ describe('NavBar', () => {
   // it('Chama logout ao clicar no botão de logout', () => { /* ... */ });
 });
 
-#🤝 Contribuição
+# 🤝 Contribuição
 Faça um fork do repositório.
 Crie uma nova branch para sua feature (git checkout -b feature/minha-nova-funcionalidade).
 Faça suas alterações e commit (git commit -m 'feat: adiciona nova funcionalidade X').
 Envie para o seu fork (git push origin feature/minha-nova-funcionalidade).
 Abra um Pull Request no repositório original.
 
-#🐛 Issues
+# 🐛 Issues
 Se encontrar algum bug ou tiver sugestões de melhoria, por favor, abra uma issue no repositório.
